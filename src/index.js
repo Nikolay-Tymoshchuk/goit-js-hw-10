@@ -3,19 +3,28 @@ import { fetchCountries } from './js/fetchCountries';
 import listItemsTpl from './templates/list-items.hbs';
 const debounce = require('lodash.debounce');
 
+// Initialization  of veraibles
+
 const DEBOUNCE_DELAY = 300;
 const refs = {
     input: document.querySelector('#search-box'),
     list: document.querySelector('.country-list'),
     info: document.querySelector('.country-info'),
 }
-
 const title = document.createElement('h1');
+
+// Generation the title
+
 title.classList.add('title');
 title.textContent = 'Enter a country name';
 document.body.insertAdjacentElement('afterbegin', title);
 
+// Initialization of event listeners
+
 refs.input.addEventListener('input', debounce(handleInput, DEBOUNCE_DELAY));
+refs.list.addEventListener('click', handleClickByListItem);
+
+// Inicialization of handleInput function, which is responsible for fetching data from the API
 
 function handleInput(e) {
     e.preventDefault();
@@ -29,7 +38,9 @@ function handleInput(e) {
     if (inputValue.length < 1) {
         return;
     }
-    
+
+// Fetching data from the API
+
     fetchCountries(inputValue).then(data => {
          if (data.length >= 2 && data.length <= 10) {
             refs.list.innerHTML = '';
@@ -43,6 +54,8 @@ function handleInput(e) {
     });
 }       
 
+// Initialization of the function, which renders list of countries
+
 function createListItem(list, item) {
     refs.info.style.padding = '0';
     
@@ -52,6 +65,8 @@ function createListItem(list, item) {
     console.log(item);
     list.appendChild(li);
 }
+
+// Initialization of the function, which renders country info
 
 function createCountryInfoBox(place, data) {
     document.body.style.backgroundImage = `url(${data.flags.svg})`;
@@ -66,9 +81,9 @@ function createCountryInfoBox(place, data) {
 `
 }
 
-refs.list.addEventListener('click', handleClick);
+// Initialization of the function, which is responsible for rendering country info by clicking on the list item
 
-function handleClick(event) {
+function handleClickByListItem(event) {
     if (event.target === event.currentTarget) return;
     const country = event.target.closest('.country');
     if (!country) return;

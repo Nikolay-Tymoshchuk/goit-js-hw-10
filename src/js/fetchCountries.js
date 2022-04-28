@@ -3,7 +3,15 @@ import MyError from './myError';
 const BASIC_URL = 'https://restcountries.com/v3.1/name/';
 const OUTPUT_OPTIONS = 'name,capital,population,flags,languages';
 
+// Set options for Notifications
+
 Notify.init({position: 'center-top', timeout: 1500});
+
+/**
+ * Initialization of the function, which returns the promise with the data from the publick API
+ * @param {string} name 
+ * @returns promise;
+ */
 
 function fetchCountries(name) {
     return fetch(`${BASIC_URL}${name}?fields=${OUTPUT_OPTIONS}`)
@@ -38,5 +46,7 @@ function fetchCountries(name) {
         }
     });
 }
+
+// Export the function for use in other modules
 
 export{fetchCountries};
