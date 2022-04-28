@@ -17,20 +17,18 @@ function handleInput(e) {
 
     refs.list.innerHTML = '';
     refs.info.innerHTML = '';
+    document.body.style.backgroundImage = '';
+    refs.info.style.padding = '0';
     
 
     const inputValue = e.target.value.trim();
 
     if (inputValue.length < 1) {
-        refs.info.style.padding = '0';
-        document.body.style.backgroundImage = '';
         return;
     }
     
     fetchCountries(inputValue).then(data => {
          if (data.length >= 2 && data.length <= 10) {
-            document.body.style.backgroundImage = '';
-            refs.info.style.padding = '0';
             refs.list.innerHTML = '';
             data.forEach(item => createListItem(refs.list, item));
             return
