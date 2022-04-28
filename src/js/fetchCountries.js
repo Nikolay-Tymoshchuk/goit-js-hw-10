@@ -3,7 +3,9 @@ import MyError from './myError';
 const BASIC_URL = 'https://restcountries.com/v3.1/name/';
 const OUTPUT_OPTIONS = 'name,capital,population,flags,languages';
 
-export function fetchCountries(name) {
+Notify.init({position: 'center-top', timeout: 1500});
+
+function fetchCountries(name) {
     return fetch(`${BASIC_URL}${name}?fields=${OUTPUT_OPTIONS}`)
     .then(res => {
 
@@ -36,4 +38,5 @@ export function fetchCountries(name) {
         }
     });
 }
-//  .then(res => res.status === 404 ? Promice.reject() : res.json()).catch(err => Notify.failure("Oops, there is no country with that name"));
+
+export{fetchCountries};

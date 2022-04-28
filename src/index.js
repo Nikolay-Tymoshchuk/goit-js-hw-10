@@ -1,5 +1,6 @@
 import './css/styles.css';
 import { fetchCountries } from './js/fetchCountries';
+import listItemsTpl from './templates/list-items.hbs';
 const debounce = require('lodash.debounce');
 
 const DEBOUNCE_DELAY = 300;
@@ -23,7 +24,6 @@ function handleInput(e) {
     refs.info.innerHTML = '';
     refs.info.style.padding = '0';
     
-
     const inputValue = e.target.value.trim();
 
     if (inputValue.length < 1) {
@@ -48,10 +48,8 @@ function createListItem(list, item) {
     
     const li = document.createElement('li');
     li.classList.add('country');
-    li.innerHTML = `
-        <img class="country__flag" src="${item.flags.svg}" alt="${item.name.official}">
-        <span class="country__name">${item.name.official}</span>
-    `;
+    li.innerHTML = listItemsTpl({item});
+    console.log(item);
     list.appendChild(li);
 }
 
