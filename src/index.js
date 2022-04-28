@@ -17,7 +17,6 @@ function handleInput(e) {
 
     refs.list.innerHTML = '';
     refs.info.innerHTML = '';
-    document.body.style.backgroundImage = '';
     refs.info.style.padding = '0';
     
 
@@ -30,6 +29,7 @@ function handleInput(e) {
     fetchCountries(inputValue).then(data => {
          if (data.length >= 2 && data.length <= 10) {
             refs.list.innerHTML = '';
+            document.body.style.backgroundImage = '';
             data.forEach(item => createListItem(refs.list, item));
             return
         }
