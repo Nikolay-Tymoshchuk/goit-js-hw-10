@@ -9,6 +9,10 @@ const refs = {
     info: document.querySelector('.country-info'),
 }
 
+const title = document.createElement('h1');
+title.classList.add('title');
+title.textContent = 'Enter a country name';
+document.body.insertAdjacentElement('afterbegin', title);
 
 refs.input.addEventListener('input', debounce(handleInput, DEBOUNCE_DELAY));
 

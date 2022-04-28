@@ -13,6 +13,16 @@ body {
   background-repeat: no-repeat;
 }
 
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  width: max-content;
+  background-color: white;
+  border-radius: 3px;
+
+}
+
 #search-box {
   font: inherit;
   padding: 8px;
