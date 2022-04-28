@@ -11,10 +11,10 @@ const refs = {
     list: document.querySelector('.country-list'),
     info: document.querySelector('.country-info'),
 }
-const title = document.createElement('h1');
 
 // Generation the title
 
+const title = document.createElement('h1');
 title.classList.add('title');
 title.textContent = 'Enter a country name';
 document.body.insertAdjacentElement('afterbegin', title);
