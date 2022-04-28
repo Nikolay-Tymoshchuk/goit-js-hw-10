@@ -39,7 +39,7 @@ function handleInput(e) {
         return;
     }
 
-// Fetching data from the API
+// Perform the necessary manipulations from extracting data from the API depending on the number of received objects
 
     fetchCountries(inputValue).then(data => {
          if (data.length >= 2 && data.length <= 10) {
