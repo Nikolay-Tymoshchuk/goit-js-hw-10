@@ -56,7 +56,6 @@ function createListItem(list, item) {
 }
 
 function createCountryInfoBox(place, data) {
-    console.log('place :>> ', place);
     document.body.style.backgroundImage = `url(${data.flags.svg})`;
     document.body.style.backgroundSize = 'cover';
     refs.info.style.padding = '10px';
