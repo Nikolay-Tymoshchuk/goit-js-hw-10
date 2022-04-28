@@ -30,6 +30,7 @@ function handleInput(e) {
     fetchCountries(inputValue).then(data => {
          if (data.length >= 2 && data.length <= 10) {
             document.body.style.backgroundImage = '';
+            refs.info.style.padding = '0';
             refs.list.innerHTML = '';
             data.forEach(item => createListItem(refs.list, item));
             return
