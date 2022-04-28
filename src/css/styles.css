@@ -10,6 +10,7 @@ body {
   background-color: #fafafa;
   color: #212121;
   line-height: 1.5;
+  background-repeat: no-repeat;
 }
 
 #search-box {
@@ -22,13 +23,23 @@ body {
 .country-list {
   list-style: none;
   padding: 0;
+  width: max-content;
 }
 
 .country {
+  position: relative;
   display: flex;
   align-items: center;
   padding: 8px;
   border-bottom: 1px solid #e0e0e0;
+  cursor: pointer;
+}
+
+.country:hover {
+  background-color: rgba(173, 255, 204, 0.425);
+  transform: scale(1.15);
+  transition: transform 0.3s ease-in-out;
+  transform-origin: 0 0;
 }
 
 .country__flag {
@@ -39,13 +50,19 @@ body {
 
 .country-info {
   margin-bottom: 16px;
-  max-width: 320px;
+  background-color: antiquewhite;
+  width: max-content;
+  border-radius: 5px;
 }
 
 .country-info__flag {
   display: inline-block;
   width: 32px;
   margin-right: 8px;
+}
+.country-info__flag:hover {
+  transform: scale(1.2) rotate(360deg);
+  transition: transform 0.4s ease-in-out;
 }
 .country-info__name {
   display: inline-block;
