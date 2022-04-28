@@ -3,7 +3,7 @@ import { fetchCountries } from './js/fetchCountries';
 import listItemsTpl from './templates/list-items.hbs';
 const debounce = require('lodash.debounce');
 
-// Initialization  of veraibles
+// Initialization  of variables
 
 const DEBOUNCE_DELAY = 300;
 const refs = {
