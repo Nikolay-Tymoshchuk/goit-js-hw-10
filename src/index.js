@@ -17,6 +17,7 @@ function handleInput(e) {
 
     refs.list.innerHTML = '';
     refs.info.innerHTML = '';
+    
 
     const inputValue = e.target.value.trim();
 
@@ -28,6 +29,7 @@ function handleInput(e) {
     
     fetchCountries(inputValue).then(data => {
          if (data.length >= 2 && data.length <= 10) {
+            document.body.style.backgroundImage = '';
             refs.list.innerHTML = '';
             data.forEach(item => createListItem(refs.list, item));
             return
@@ -40,6 +42,7 @@ function handleInput(e) {
 
 function createListItem(list, item) {
     refs.info.style.padding = '0';
+    
     const li = document.createElement('li');
     li.classList.add('country');
     li.innerHTML = `
