@@ -49,4 +49,6 @@ function fetchCountries(name) {
 
 // Export the function for use in other modules
 
-export{fetchCountries};
+export { fetchCountries };
+
+// End of file
