@@ -42,7 +42,8 @@ function handleInput(e) {
 // Perform the necessary manipulations from extracting data from the API depending on the number of received objects
 
     fetchCountries(inputValue).then(data => {
-         if (data.length >= 2 && data.length <= 10) {
+        if (!data) return;
+        if (data.length >= 2 && data.length <= 10) {
             refs.list.innerHTML = '';
             document.body.style.backgroundImage = '';
             data.forEach(item => createListItem(refs.list, item));
